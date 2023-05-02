@@ -10,9 +10,12 @@ class Specialty {
 private:
     std::string specialty_name;
     std::vector<Doctor> doctors;
-    std::vector 
+    std::vector<Assistant> assistants;
+
+public:
+    Specialty();
+    void add_doctor();
+    void add_assistant();
 };
-
-
 
 #endif
