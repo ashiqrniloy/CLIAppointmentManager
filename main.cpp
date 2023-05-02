@@ -4,72 +4,12 @@
 #include <map>
 #include <memory>
 #include "Admin.h"
+#include "Person.h"
+#include "User.h"
 
 // function prototypes
 int start_menu();
 bool admin_functionalities(std::unique_ptr<Admin> &admin_ptr);
-
-// class person
-class Person {
-private:
-    std::string name;
-    int age;
-    std::string gender;
-
-public:
-    Person(std::string person_name, int person_age, std::string person_gender) 
-        : name {person_name}, age {person_age}, gender {person_gender} {
-
-    }
-
-    void display_profile () {
-        std::cout << "Name: " << this->name << std::endl;
-        std::cout << "Age: " << this->age << std::endl;
-        std::cout << "Gender: " << this->gender << std::endl;
-    }
-};
-
-
-
-// class user
-class User : public Person {
-private:
-    std::string username;
-    std::string password;
-    
-public:
-    User(std::string name, int age, std::string gender) 
-        : Person (name, age, gender) {
-        std::cout << "Username: ";
-        std::cin >> username;
-        std::cout << "Password: ";
-        std::cin >> password;
-    }
-
-    std::string get_username() {
-        return username;
-    }
-
-    bool login () {
-        std::string user_name;
-        std::string user_password;
-
-        std::cout << "Username: ";
-        std::cin >> user_name;
-        std::cout << "Password: ";
-        std::cin >> user_password;
-        
-        if (this->username == user_name && this->password == user_password)
-            return true;
-        
-        return false;
-    }
-
-    int menu() {
-
-    }  
-};
-
 
 int main() {
     std::unique_ptr<Admin> system_admin(new Admin());
